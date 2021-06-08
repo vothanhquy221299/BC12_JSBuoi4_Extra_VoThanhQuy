@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\EX_JS_Buoi4"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "EX_EXTRA_JS_Buoi4"
+	}
+}
