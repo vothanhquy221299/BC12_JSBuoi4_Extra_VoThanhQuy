@@ -278,8 +278,10 @@ document.getElementById('btnDistance').addEventListener('click', function () {
         }
         return maxDistance;
     }
+   
 
     var ketQuaXaNhat = khoangCachXaNhat();
+    console.log(ketQuaXaNhat);
     if(ketQuaXaNhat = tinhKhoangCach(x1, y1)){
         resultDistance.style.display = 'block';
         resultDistance.innerHTML = 'Tọa độ A là xa trường nhất';
@@ -290,6 +292,5 @@ document.getElementById('btnDistance').addEventListener('click', function () {
         resultDistance.style.display = 'block';
         resultDistance.innerHTML = 'Tọa độ C là xa trường nhất';
     } 
-    // resultDistance.style.display = 'block';
-    // resultDistance.innerHTML = 'Sinh viên xa trường nhất '
+    
 })
