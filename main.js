@@ -119,7 +119,7 @@ document.getElementById('btnCount').addEventListener('click', function () {
 /**
  * Bài 3:
  */
-var hangTram = function (soCoBaChuSo) { 
+var hangTram = function (soCoBaChuSo) {
     var tmpTram = '';
     soCoBaChuSo /= 10;
     switch (Math.round(soCoBaChuSo / 10)) {
@@ -165,7 +165,7 @@ var hangChuc = function (soCoBaChuSo) {
             tmpChuc = 'Ling';
             break;
         case 1:
-           tmpChuc = 'Mươi';
+            tmpChuc = 'Mươi';
             break;
         case 2:
             tmpChuc = 'Hai Mươi';
@@ -237,16 +237,59 @@ document.getElementById('btnRead').addEventListener('click', function () {
     var tram = hangTram(ipNumber);
     var chuc = hangChuc(ipNumber);
     var donVi = hangDonVi(ipNumber);
-    if(ipNumber<100 && ipNumber>999){
+    if (ipNumber < 100 && ipNumber > 999) {
         alert('Nhập vào số có 3 chữ số!');
-    }else{
-    var resultRead = document.getElementById('resultRead');
-    resultRead.style.display = 'block';
-    resultRead.innerHTML = ipNumber + ' đọc là: ' + ' ' +tram + ' ' +chuc + ' ' +donVi;
+    } else {
+        var resultRead = document.getElementById('resultRead');
+        resultRead.style.display = 'block';
+        resultRead.innerHTML = ipNumber + ' đọc là: ' + ' ' + tram + ' ' + chuc + ' ' + donVi;
     }
 });
 
 /**
- *
+ *Bài 4:
  *
  */
+var toaDo = function (x, y) {
+    console.log(x + ',' + y);
+}
+var tinhKhoangCach = function (x, y) {
+    var khoangCach = '';
+    khoangCach = Math.sqrt((0 - x) * (0 - x) + (0 - y) * (0 - y));
+    return khoangCach;
+}
+document.getElementById('btnDistance').addEventListener('click', function () {
+    var x1 = document.getElementById('ipX1').value;
+    var y1 = document.getElementById('ipY1').value;
+    var x2 = document.getElementById('ipX2').value;
+    var y2 = document.getElementById('ipY2').value;
+    var x3 = document.getElementById('ipX3').value;
+    var y3 = document.getElementById('ipY3').value;
+
+    var resultDistance = document.getElementById('resultDistance');
+
+    var khoangCachXaNhat = function () {
+        var maxDistance = 0;
+        var listToaDo = [tinhKhoangCach(x1, y1), tinhKhoangCach(x2, y2), tinhKhoangCach(x3, y3)];
+        for (var i = 0; i < listToaDo.length; i++) { 
+            if (listToaDo[i] > maxDistance) {
+                maxDistance = listToaDo[i];
+            }
+        }
+        return maxDistance;
+    }
+
+    var ketQuaXaNhat = khoangCachXaNhat();
+    if(ketQuaXaNhat = tinhKhoangCach(x1, y1)){
+        resultDistance.style.display = 'block';
+        resultDistance.innerHTML = 'Tọa độ A là xa trường nhất';
+    } else if(ketQuaXaNhat = tinhKhoangCach(x2, y2)){
+        resultDistance.style.display = 'block';
+        resultDistance.innerHTML = 'Tọa độ B là xa trường nhất';
+    } else if(ketQuaXaNhat = tinhKhoangCach(x3, y3)){
+        resultDistance.style.display = 'block';
+        resultDistance.innerHTML = 'Tọa độ C là xa trường nhất';
+    } 
+    // resultDistance.style.display = 'block';
+    // resultDistance.innerHTML = 'Sinh viên xa trường nhất '
+})
