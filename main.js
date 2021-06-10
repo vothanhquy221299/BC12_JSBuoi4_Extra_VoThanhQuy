@@ -254,43 +254,45 @@ var toaDo = function (x, y) {
     console.log(x + ',' + y);
 }
 var tinhKhoangCach = function (x, y) {
-    var khoangCach = '';
+    var khoangCach = 0;
     khoangCach = Math.sqrt((0 - x) * (0 - x) + (0 - y) * (0 - y));
     return khoangCach;
 }
 document.getElementById('btnDistance').addEventListener('click', function () {
-    var x1 = document.getElementById('ipX1').value;
-    var y1 = document.getElementById('ipY1').value;
-    var x2 = document.getElementById('ipX2').value;
-    var y2 = document.getElementById('ipY2').value;
-    var x3 = document.getElementById('ipX3').value;
-    var y3 = document.getElementById('ipY3').value;
+    var x1 = parseInt(document.getElementById('ipX1').value);
+    var y1 = parseInt(document.getElementById('ipY1').value);
+    var x2 = parseInt(document.getElementById('ipX2').value);
+    var y2 = parseInt(document.getElementById('ipY2').value);
+    var x3 = parseInt(document.getElementById('ipX3').value);
+    var y3 = parseInt(document.getElementById('ipY3').value);
 
     var resultDistance = document.getElementById('resultDistance');
 
     var khoangCachXaNhat = function () {
         var maxDistance = 0;
         var listToaDo = [tinhKhoangCach(x1, y1), tinhKhoangCach(x2, y2), tinhKhoangCach(x3, y3)];
-        for (var i = 0; i < listToaDo.length; i++) { 
+        for (var i = 0; i < listToaDo.length; i++) {
+
             if (listToaDo[i] > maxDistance) {
                 maxDistance = listToaDo[i];
             }
         }
         return maxDistance;
     }
-   
+
 
     var ketQuaXaNhat = khoangCachXaNhat();
     console.log(ketQuaXaNhat);
-    if(ketQuaXaNhat = tinhKhoangCach(x1, y1)){
-        resultDistance.style.display = 'block';
-        resultDistance.innerHTML = 'Tọa độ A là xa trường nhất';
-    } else if(ketQuaXaNhat = tinhKhoangCach(x2, y2)){
-        resultDistance.style.display = 'block';
-        resultDistance.innerHTML = 'Tọa độ B là xa trường nhất';
-    } else if(ketQuaXaNhat = tinhKhoangCach(x3, y3)){
-        resultDistance.style.display = 'block';
-        resultDistance.innerHTML = 'Tọa độ C là xa trường nhất';
-    } 
-    
+    var msg = "";
+    if (ketQuaXaNhat == tinhKhoangCach(x1, y1)) {
+        msg = 'Tọa độ A là xa trường nhất';
+    } else if (ketQuaXaNhat == tinhKhoangCach(x2, y2)) {
+        msg = 'Tọa độ B là xa trường nhất';
+
+    } else if (ketQuaXaNhat == tinhKhoangCach(x3, y3)) {
+        msg = 'Tọa độ C là xa trường nhất';
+    }
+    resultDistance.style.display = 'block';
+    resultDistance.innerHTML = msg;
+
 })
